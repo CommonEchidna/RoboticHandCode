@@ -30,7 +30,9 @@ with mp_hands.Hands(
             mp_drawing_styles.get_default_hand_connections_style())
         for ids, landmrk in enumerate(hand_landmarks.landmark):
             cx, cy,cz = landmrk.x, landmrk.y,landmrk.z
+            cx,cy,cz = round(cx),round(cy),round(cz)
             coordlist.append([cx, cy,cz])
+            
 
 
     # Flip the image horizontally for a selfie-view display.
