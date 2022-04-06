@@ -49,8 +49,8 @@ with mp_hands.Hands(
             arr = [indexclenched,middleclenched,ringclenched,pinkyclenched]
             avg = round(sum(arr)/4)
             coordlist.append([avg, cx, cy,cz])
-            #ser = serial.Serial(port="COM3",baudrate = 115200,write_timeout = 1)
-            #ser.write(coordlist)
+            ser = serial.Serial(port="COM4",baudrate = 115200,write_timeout = 0)
+            ser.write(coordlist)
             
             
 
