@@ -1,4 +1,4 @@
-My implementation of mediapipe to get images with hands as an input and to eventualy return a serial version of the hands positions or how clenched they are as an output.
+My implementation of mediapipe to get images with hands as an input and to eventually return a serial version of the hands positions or how clenched they are as an output.
 
 test.py: Tests mediapipe and opencv, drawing various parts of the hand on the video that is created
 
