@@ -30,6 +30,8 @@ with mp_hands.Hands(
     image.flags.writeable = True
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     coordlist = []
+    ser = serial.Serial(port="COM4",baudrate = 115200,write_timeout = 0)
+
     if results.multi_hand_landmarks:
       for hand_landmarks in results.multi_hand_landmarks:
         mp_drawing.draw_landmarks(
@@ -41,15 +43,13 @@ with mp_hands.Hands(
         for ids, landmrk in enumerate(hand_landmarks.landmark):
           if ids==0:
             cx, cy,cz = landmrk.x, landmrk.y,landmrk.z
-            cx, cy, cz = round(50*(cx+1)/2),round(50*(cy+1)/2),round(50*(cz+1)/2)
             indexclenched = round((getclenched(4,hand_landmarks)+1)/2)
             middleclenched = round((getclenched(8,hand_landmarks)+1)/2)
             ringclenched = round((getclenched(12,hand_landmarks)+1)/2)
             pinkyclenched = round((getclenched(16,hand_landmarks)+1)/2)
             arr = [indexclenched,middleclenched,ringclenched,pinkyclenched]
             avg = round(sum(arr)/4)
-            coordlist.append([avg, cx, cy,cz])
-            ser = serial.Serial(port="COM4",baudrate = 115200,write_timeout = 0)
+            coordlist.append(bytearray(np.array([avg, cx, cy,cz])))
             ser.write(coordlist)
             
             
