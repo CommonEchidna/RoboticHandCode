@@ -6,8 +6,4 @@ coords.py: makes an array coordlist with the coordinates of each part of the han
 
 clenched.py: makes values thumbclencehd-pinkyclenched which shows how clenched each finger is. Depending on the implementation of the robotic hand, we may use this instead.
 
-TODO:
-
-Output to Serial
-
 ![posiitio](https://user-images.githubusercontent.com/92749562/159334727-7f1a1940-1332-46e3-88c4-b05c1d786aa9.jpeg)
